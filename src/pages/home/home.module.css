@@ -1,0 +1,18 @@
+.home{
+  color: #ffffff;
+}
+
+@font-face {
+    src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/2479807/neuzeit.woff2') format('woff2');
+    font-family: 'Neuzeit';
+}
+
+
+
+
+body {
+    font-family: 'Neuzeit', sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
