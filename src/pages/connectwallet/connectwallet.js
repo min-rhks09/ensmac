@@ -46,7 +46,7 @@ function Connectwallet() {
   const openMetamask = useCallback(async () => {
     alert('connect')
     console.log("OPEN METAMASK")
-    const chainId = 777
+    const chainId = 778
 
     console.log('>>>>>>>>>window.ethereum',window.ethereum.networkVersion, chainId)
     if (window.ethereum.networkVersion !== chainId) {

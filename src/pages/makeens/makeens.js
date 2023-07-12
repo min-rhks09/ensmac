@@ -5,7 +5,7 @@ import Detail from './detail';
 import styled from 'styled-components';
 
 
-//user flow: 로그인 with 777 chain - ens page - ens조회 - ens기사용 여부 표시 - 사용가능 - 입력한 ens와 지갑주소 전송 - 둔 ens등록완료 - 마이페이지 이동
+//user flow: 로그인 with 778 chain - ens page - ens조회 - ens기사용 여부 표시 - 사용가능 - 입력한 ens와 지갑주소 전송 - 둔 ens등록완료 - 마이페이지 이동
 
 
 function Makeens() {
@@ -32,7 +32,7 @@ function Makeens() {
           alert("사용가능한 이름입니다")
           console.log(data);
           navigate(`/detail?inputValue=${encodeURIComponent(inputValue)}`);}
-          else{  alert('사용불가한 이름입니다 조건을 확인해주세요')}
+          else{  alert('사용불가한 이름입니다 조건 확인해주세요')}
         })
         .catch(error => {
           console.error('Error:', error);

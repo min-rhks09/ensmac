@@ -18,7 +18,8 @@ function Mypage() {
   const walletAddress = useWalletAddress();
   
   const [commentsCount, setCommentsCount] = useState(0);
-  //const [postsCount, setPostsCount] = useState(0);
+  const [postsCount, setPostsCount] = useState(0);
+  const [myName, setMyName] = useState();
 
   useEffect(() => {
     axios.get('http://172.30.1.14:3000/myPage/commentsAll?wallet='+walletAddress)
@@ -33,19 +34,35 @@ function Mypage() {
       });
   }, []);
 
-  // useEffect(() => {
-  //   axios.get('http://172.30.1.14:3000/myPage/postAll?wallet='+walletAddress)
-  //     .then(response => {
-  //       // Access the comments count from the response
-  //       const count = response.data;
-  //       setPostsCount(count);
-  //       console.log(response)
-  //     })
+  useEffect(() => {
+    axios.get('http://172.30.1.14:3000/myPage/postAll?wallet='+walletAddress)
+      .then(response => {
+        // Access the comments count from the response
+        const count = response.data;
+        setPostsCount(count);
+        console.log(response)
+      })
     
-  //     .catch(error => {
-  //       console.error('Error:', error);
-  //     });
-  // }, []);
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  }, []);
+
+  useEffect(() => {
+    axios.get('http://172.30.1.14:3000/mypage/usingName?wallet='+walletAddress)
+      .then(response => {
+        console.log(response);
+        const eName = response.data[0].name;
+        
+        setMyName(eName);
+
+        console.log(response);
+      })
+      
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  }, []);
 
   // useEffect(() => {
   //   const storedMypage = JSON.parse(localStorage.getItem('mypage')) || [];
@@ -74,11 +91,11 @@ function Mypage() {
     <Box>
     <h5>INFORMATION</h5>
     <hr/>
-    <Myname>1234.eth</Myname>
+    <Myname>{myName}</Myname>
       <Minibox wi='15vw' he='10vw'>
         <Icon src={docs}/><br/>
         <p>POST</p> 
-        <p></p>
+        <p>{postsCount}</p>
       </Minibox>
       <Minibox>
         <Icon src={comment}/><br/>
